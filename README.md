@@ -1,11 +1,10 @@
 # TCGPlayerTxt-to-YDK
 ## Converts a TCGPlayer Decklist text file into a .ydk file... If that's something you need.
 
-### Requires the next modules to build the program: 
+### Requires the next modules of Python to build the program: 
 - requests
 - Customtinker
 - pyintstaller
-- 
 
 ### Known Issues (OUTDATED):
 
