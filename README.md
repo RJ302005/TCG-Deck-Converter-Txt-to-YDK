@@ -1,15 +1,113 @@
-# TCGPlayerTxt-to-YDK
-## Converts a TCGPlayer Decklist text file into a .ydk file... If that's something you need.
+# YGO Deck Converter (.txt to .ydk)
 
-### Requires the next modules of Python to build the program: 
-- requests
-- Customtinker
-- pyintstaller
+A modular, fast, and user-friendly GUI application to convert decklists exported in plain text (`.txt`) from various TCG platforms into standard `.ydk` files compatible with YGOPro, Project Ignis (EDOPro), Dueling Nexus, and other Yu-Gi-Oh! simulators.
 
-### Known Issues (OUTDATED):
+---
 
-- Some community projects (Dueling Book) can't manage cards with multiple ID's, so some cards are not added to the deck in said projects (Dueling Book). This is not a bug in the script, but I am working on ways to remedy this without depending on others (Dueling Book) fixing their bugs. Ex: API call for Harpie's Feather Duster comes back with ID "18144507", but the card also has the ID "18144506". Other projects can manage the multiple IDs just fine.
-- To be found...
+## Features
 
-### Future Plans:
-- Add a batch convert option (Convert multiple files at a time).
+* **Multi-Platform Parsing Support:** Native support for exported text files from:
+
+  * **TCGPlayer**
+  * **DuelingBook**
+  * **Dueling Nexus**
+
+* **Modern Graphical User Interface:** Built with `customtkinter`, featuring dark mode, platform selector, file manager, and real-time conversion logging.
+
+* **Batch File Conversion:** Select and convert multiple `.txt` decklists simultaneously in a single click.
+
+* **Smart Local Database Caching:** Downloads the full YGOPRODeck database locally on first launch and automatically updates it every 7 days, falling back to the cached database if offline. This eliminates slow, repeated HTTP requests per card and speeds up conversion.
+
+---
+
+## Prerequisites & Requirements
+
+If you want to run or build the project from source, make sure you have **Python 3.8+** installed along with the required dependencies.
+
+Install the dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Dependencies
+
+* `requests` — Used to update the local card database through the YGOPRODeck API.
+* `customtkinter` — Used for the graphical user interface.
+* `pyinstaller` — Optional. Used to package the application into a standalone `.exe`.
+
+---
+
+## How to Run
+
+### Running from Source
+
+Execute `main.py` in your terminal or IDE:
+
+```bash
+python main.py
+```
+
+### Building a Standalone Executable
+
+To compile the project into a standalone executable for Windows:
+
+```bash
+pyinstaller YGO_Deck_Converter.spec
+```
+
+The compiled output will be generated inside:
+
+```text
+dist/YGO_Deck_Converter/
+```
+
+---
+
+## Project Structure
+
+```text
+├── engine.py                  # Core logic: local database cache management and YDK file exporter
+├── parsers.py                 # Modular deck list parsers (TCGPlayer, DuelingBook, Dueling Nexus)
+├── main.py                    # CustomTkinter GUI application
+├── YGO_Deck_Converter.spec    # PyInstaller configuration for packaging with assets
+└── requirements.txt           # Python dependencies
+```
+
+---
+
+## Adding Support for New Platforms
+
+Adding a parser for a new platform or updating card ID exceptions is straightforward thanks to the modular architecture.
+
+### Adding Card ID Exceptions
+
+Open `parsers.py` and update the `DUELINGBOOK_ID_OVERRIDES` dictionary at the top of the file:
+
+```python
+DUELINGBOOK_ID_OVERRIDES = {
+    "harpie's feather duster": 18144506,
+    # Add other card exceptions here if needed
+}
+```
+
+This dictionary allows platform-specific card passcodes to be overridden when the default YGOPRODeck ID is not compatible with DuelingBook.
+
+### Adding a New Platform
+
+To add support for a new platform:
+
+1. Open `parsers.py`.
+2. Add a static method to the `DeckParser` class following the existing parser structure.
+3. Register the new parser in the `PARSERS_AVAILABLE` dictionary.
+
+Once registered, the new platform will automatically appear in the GUI's platform selection dropdown.
+
+---
+
+## Known Issues & Notes
+
+* **Card ID Compatibility (Resolved):** Certain platforms, such as DuelingBook, require specific alternate card passcodes. For example, *Harpie's Feather Duster* uses ID `18144506` instead of `18144507` on DuelingBook. This issue is handled through the `DUELINGBOOK_ID_OVERRIDES` mapping in `parsers.py`, which automatically substitutes platform-specific passcodes during parsing.
+
+* **Offline Mode:** If you launch the application without an active internet connection, it automatically uses the last saved `ygopro_cache.json` file.
+
