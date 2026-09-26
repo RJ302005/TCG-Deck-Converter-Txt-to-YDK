@@ -1,3 +1,9 @@
+# Diccionario de excepciones de ID para solucionar problemas conocidos con DuelingBook
+DUELINGBOOK_ID_OVERRIDES = {
+    "harpie's feather duster": 18144506,
+    # Si la comunidad reporta otra carta con este mismo problema en DuelingBook, la agregas aquí:
+    # "nombre de la carta": ID_preferido,
+}
 class DeckParser:
     @staticmethod
     def parse_tcgplayer(file_path, db_map):
@@ -76,7 +82,13 @@ class DeckParser:
                         qty = int(parts[0])
                         cname = parts[1]
 
-                card_id = db_map.get(cname.strip())
+                clean_name = cname.strip().lower()
+
+                # --- AQUÍ ESTÁ EL CAMBIO ---
+                # 1. Busca primero en las excepciones de DuelingBook
+                # 2. Si no está en las excepciones, busca en la base de datos normal
+                card_id = DUELINGBOOK_ID_OVERRIDES.get(clean_name) or db_map.get(clean_name)
+
                 if card_id:
                     deck[current_sec].extend([card_id] * qty)
 
