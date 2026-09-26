@@ -1,3 +1,4 @@
+##Superseded by Main.py, this file now serves only as an acknowledgement of the work from the original author of the repository from which this fork was created.
 import requests
 from urllib.parse import quote_plus
 
