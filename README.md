@@ -10,16 +10,23 @@
 ### This project is a maintained and improved fork of the original YGO Deck Converter, with updated parsing, platform-specific card ID handling, local database caching, and other improvements.
 
 ---
-
-## Supported Platforms
+### Supported Platforms
 
 This fork currently supports decklist parsing from the following platforms:
 
-[<img src="assets/platforms/tcgplayer.png" height="128" alt="TCGplayer">](https://www.tcgplayer.com/)
-   
-[<img src="assets/platforms/duelingbook.png" height="128" alt="DuelingBook">](https://www.duelingbook.com/)
-   
-[<img src="assets/platforms/duelingnexus.png" height="128" alt="Dueling Nexus">](https://duelingnexus.com/home)
+<p align="center">
+  <a href="https://www.tcgplayer.com/">
+    <img src="assets/platforms/tcgplayer.png" height="112" alt="TCGplayer">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.duelingbook.com/">
+    <img src="assets/platforms/duelingbook.png" height="160" alt="DuelingBook">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://duelingnexus.com/home">
+    <img src="assets/platforms/duelingnexus.png" height="128" alt="Dueling Nexus">
+  </a>
+</p>
 
 > **Note:** This project is a maintained fork of the original YGO Deck Converter. Some platforms or functionality from the original project may still be present in the codebase, but they are not necessarily supported or maintained in this version.
 
