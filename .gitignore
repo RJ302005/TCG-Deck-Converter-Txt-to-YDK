@@ -1,0 +1,16 @@
+# Entorno virtual
+.venv/
+env/
+venv/
+
+# PyInstaller y compilación
+build/
+dist/
+
+# Binarios / Ejecutables
+*.exe
+
+# Caché local y temporales
+ygopro_cache.json
+__pycache__/
+*.pyc
