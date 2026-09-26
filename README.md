@@ -16,7 +16,7 @@ This fork currently supports decklist parsing from the following platforms:
 
 <p align="center">
   <a href="https://www.tcgplayer.com/">
-    <img src="assets/platforms/tcgplayer.png" height="96" alt="TCGplayer">
+    <img src="assets/platforms/tcgplayer.png" height="104" alt="TCGplayer">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://www.duelingbook.com/">
