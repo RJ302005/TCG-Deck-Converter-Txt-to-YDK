@@ -1,16 +1,41 @@
-# YGO TCG Deck Converter (.txt to .ydk) [!Python]
+# YGO TCG Deck Converter (.txt to .ydk)
 
-### A modular, fast, and user-friendly GUI application to convert decklists exported in plain text (`.txt`) from various TCG platforms into standard `.ydk` files compatible with YGOPro, Project Ignis (EDOPro), Dueling Nexus, and other Yu-Gi-Oh! simulators.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB.svg)](https://www.python.org/)
+[![GUI](https://img.shields.io/badge/GUI-CustomTkinter-1F6FEB.svg)](https://github.com/TomSchimansky/CustomTkinter)
+[![Input](https://img.shields.io/badge/Input-.txt-F59E0B.svg)](#)
+[![Output](https://img.shields.io/badge/Output-.ydk-22C55E.svg)](#)
+
+## A modular, fast, and user-friendly GUI application for converting decklists exported in plain text (`.txt`) into standard `.ydk` files compatible with YGOPro, Project Ignis (EDOPro), Dueling Nexus, and other Yu-Gi-Oh! simulators.
+
+### This project is a maintained and improved fork of the original YGO Deck Converter, with updated parsing, platform-specific card ID handling, local database caching, and other improvements.
 
 ---
 
+## Supported Platforms
+
+This fork currently supports decklist parsing from the following platforms:
+
+[<img src="assets/platforms/tcgplayer.png" height="32" alt="TCGplayer">](https://www.tcgplayer.com/)
+   
+[<img src="assets/platforms/duelingbook.png" height="32" alt="DuelingBook">](https://www.duelingbook.com/)
+   
+[<img src="assets/platforms/duelingnexus.png" height="32" alt="Dueling Nexus">](https://duelingnexus.com/home)
+
+> **Note:** This project is a maintained fork of the original YGO Deck Converter. Some platforms or functionality from the original project may still be present in the codebase, but they are not necessarily supported or maintained in this version.
+
+---
+
+## About This Fork
+
+This repository is a maintained and improved fork of the original YGO Deck Converter.
+
+The fork focuses on improving the original project with updated platform parsing, platform-specific card ID handling, local YGOPRODeck database caching, batch conversion, and other improvements.
+
+Compatibility listed in this README refers specifically to the functionality maintained and tested in this fork. Features or parsers inherited from the original project may not be actively maintained.
+
+---
+ 
 ## Features
-
-* **Multi-Platform Parsing Support:** Native support for exported text files from:
-
-  * **TCGPlayer**
-  * **DuelingBook**
-  * **Dueling Nexus**
 
 * **Modern Graphical User Interface:** Built with `customtkinter`, featuring dark mode, platform selector, file manager, and real-time conversion logging.
 
