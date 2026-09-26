@@ -1,4 +1,4 @@
-# YGO Deck Converter (.txt to .ydk)
+#YGO TCG Deck Converter (.txt to .ydk)
 
 A modular, fast, and user-friendly GUI application to convert decklists exported in plain text (`.txt`) from various TCG platforms into standard `.ydk` files compatible with YGOPro, Project Ignis (EDOPro), Dueling Nexus, and other Yu-Gi-Oh! simulators.
 
